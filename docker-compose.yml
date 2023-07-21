@@ -1,0 +1,25 @@
+version: '3.8'
+services: #=i container isolati con il programma Docker
+  dev-db: #nome dato al db, è il servizio (container) creato con Docker
+    image: postgres:13
+    ports:
+      - 5434:5432 #collego la porta 5434 dell'host alla 5432 del postGres, se aprissi un nuovo servizio postGres cambiare solo la porta dell'host
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: nest
+    networks:
+      - freecodecamp
+  test-db: #nome dato al db, è il servizio (container) creato con Docker
+    image: postgres:13
+    ports:
+      - 5435:5432 #collego la porta 5435 dell'host alla 5432 del postGres, se aprissi un nuovo servizio postGres cambiare solo la porta dell'host
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: nest
+    networks:
+      - freecodecamp
+networks:
+  freecodecamp:
+
